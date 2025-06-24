@@ -1,0 +1,9 @@
+services:
+  monitor:
+    build: .
+    container_name: monitor-app
+    restart: always
+    environment:
+      - NODE_ENV=production
+    networks:
+      - mysql-net
