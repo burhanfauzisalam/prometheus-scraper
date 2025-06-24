@@ -1,7 +1,7 @@
 services:
   monitor:
     build: .
-    container_name: monitor-app
+    container_name: prometheus-scraper
     restart: always
     environment:
       - NODE_ENV=production
