@@ -1,7 +1,7 @@
-// monitor.js
-const axios = require("axios");
-const mysql = require("mysql2/promise");
-const cron = require("node-cron");
+// monitor.js (ESM)
+import axios from "axios";
+import mysql from "mysql2/promise";
+import cron from "node-cron";
 
 const PROMETHEUS_URL = `http://localhost:9090/api/v1/query?query=up{job="blackbox-icmp"}`;
 const db = mysql.createPool({
@@ -12,7 +12,6 @@ const db = mysql.createPool({
   database: "prometheus_data",
 });
 
-// Schedule every 1 minute
 cron.schedule("* * * * *", async () => {
   try {
     const response = await axios.get(PROMETHEUS_URL);
@@ -20,7 +19,7 @@ cron.schedule("* * * * *", async () => {
 
     for (const item of results) {
       const instance = item.metric.instance;
-      const status = parseInt(item.value[1]); // 1 = up, 0 = down
+      const status = parseInt(item.value[1]);
 
       await db.execute(
         "INSERT INTO server_status (instance, status) VALUES (?, ?)",
