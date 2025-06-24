@@ -6,8 +6,8 @@ services:
     environment:
       - NODE_ENV=production
     networks:
-      - mysql_default
+      - mysql_mysql-net
 
 networks:
-  mysql_default:
+  mysql_mysql-net:
     external: true
