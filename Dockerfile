@@ -8,10 +8,10 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-# RUN npm install
+RUN npm install
 
 # Salin semua file (termasuk folder src)
 COPY . .
 
 # Jalankan file utama dari folder src
-# CMD ["node", "app.js"]
+CMD ["node", "app.js"]
