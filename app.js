@@ -3,7 +3,7 @@ import axios from "axios";
 import mysql from "mysql2/promise";
 import cron from "node-cron";
 
-const PROMETHEUS_URL = `http://localhost:9090/api/v1/query?query=up{job="blackbox-icmp"}`;
+const PROMETHEUS_URL = `http://localhost:9090/api/v1/query?query=probe_success{job="blackbox-icmp"}`;
 const PROBE_DURATION_SECONDS_URL = `http://localhost:9090/api/v1/query?query=probe_duration_seconds{job="blackbox-icmp"}`;
 const db = mysql.createPool({
   port: 3308,
