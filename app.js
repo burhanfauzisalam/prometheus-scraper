@@ -45,7 +45,7 @@ const probe = async () => {
 
     for (const item of results) {
       const instance = item.metric.instance;
-      const status = parseInt(item.value[1]);
+      const status = parseFloat(item.value[1]);
 
       await db.execute(
         "INSERT INTO probe_duration_seconds (instance, status) VALUES (?, ?)",
