@@ -3,9 +3,4 @@ services:
     build: .
     container_name: prometheus-scraper
     restart: always
-    networks:
-      - mysql_default
-
-networks:
-  mysql_default:
-    external: true
+    network_mode: "host"
