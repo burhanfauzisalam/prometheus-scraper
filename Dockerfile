@@ -14,4 +14,4 @@ COPY package*.json ./
 COPY . .
 
 # Jalankan file utama dari folder src
-CMD ["node", "app.js"]
+# CMD ["node", "app.js"]
