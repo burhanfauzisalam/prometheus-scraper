@@ -5,8 +5,8 @@ import cron from "node-cron";
 
 const PROMETHEUS_URL = `http://localhost:9090/api/v1/query?query=up{job="blackbox-icmp"}`;
 const db = mysql.createPool({
-  port: 3306,
-  host: "mysql80",
+  port: 3308,
+  host: "localhost",
   user: "root",
   password: "mysql123",
   database: "prometheus_data",
